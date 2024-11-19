@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload SVG with Default Placeholder</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap'); :root { --primary: #000000; --secondary: #ffffff; --radius: 60px; --border: 2px; } * {box-sizing: border-box; overflow-x: hidden;} img {vertical-align: middle;} body { margin: 0px; font-family: "Poppins", sans-serif; font-size: 16px; font-style: normal; line-height: 1.6; } /* Basic Elements */ h1, h2, h3, h4, h5, h6 { margin: 0px; line-height: 1.4; overflow: hidden; } a, p, span, hr { margin: 0px; } a {text-decoration: none;} /* Fonts */ .font-size-12 {font-size: 12px;} .font-size-14 {font-size: 14px;} .font-size-16 {font-size: 16px;} .font-size-18 {font-size: 18px;} .font-size-20 {font-size: 20px;} .font-size-22 {font-size: 22px;} .font-size-22 {font-size: 22px;} .font-size-24 {font-size: 24px;} .font-size-28 {font-size: 28px;} .font-size-32 {font-size: 32px;} .font-size-36 {font-size: 36px;} .font-size-48 {font-size: 48px;} .font-size-96 {font-size: 96px;} .font-size-128 {font-size: 128px;} .regular {font-weight: 400;} .medium {font-weight: 500;} .semibold {font-weight: 600;} .bold {font-weight: 700;} /* Colors */ .color-primary {color: var(--primary);} .color-secondary {color: var(--secondary);} .background-primary {background-color: var(--primary);} .background-secondary {background-color: var(--secondary);} /* Layout */ .d-block { display: block; } .d-inline { display: inline; } .d-inline-block { display: inline-block; } .d-flex { display: flex; } .d-inline-flex { display: inline-flex; } .d-none { display: none; } .justify-center { justify-content: center; } .align-center { align-items: center; } .justify-between { justify-content: space-between; } .radius {border-radius: var(--radius);} .container { margin: auto; max-width: 1200px; padding: 0px 60px; } .large-container { margin: auto; max-width: 1200px; padding: 0px; } /* Spacing */ .space-2 {width: 100%; height: 2px;} .space-4 {width: 100%; height: 4px;} .space-6 {width: 100%; height: 6px;} .space-8 {width: 100%; height: 8px;} .space-10 {width: 100%; height: 10px;} .space-12 {width: 100%; height: 12px;} .space-16 {width: 100%; height: 16px;} .space-24 {width: 100%; height: 24px;} .space-32 {width: 100%; height: 32px;} .space-48 {width: 100%; height: 48px;} .space-64 {width: 100%; height: 64px;} .space-96 {width: 100%; height: 96px;} .space-128 {width: 100%; height: 128px;} .space-256 {width: 100%; height: 256px;} /* Button */ .button { margin: auto; display: inline-flex; width: auto; height: auto; padding: 12px 20px; justify-content: center; align-items: center; border: none; font-family: var(--family-sans); line-height: 1; cursor: pointer; gap: 8px; transition: 0.3s ease; opacity: 1; } .button:hover { opacity: 0.8; } /* Your Custom Css */
+
+    .container {
+        margin: auto;
+        max-width: 1440px;
+    }
+
+    .main {
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .padding {
+        padding: 30px;
+    }
+
+    .primary {
+        width: 100%;
+        height: 360px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .secondary {
+        width: 100%;
+        height: 360px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    @media only screen and (max-width: 1400px) {
+        .container {
+        margin: auto;
+        width: 100%;
+        padding: 0px 12px;
+    }
+
+    .main {
+        grid-template-columns: auto;
+    }
+    }
+  </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="space-64"></div>
+        <h1 class="font-size-32 regular">Brand Color Generator</h1>
+        <div class="space-32"></div>
+    </div>
+    <div class="container">
+        <div class="main">
+            <div>
+                <div id="color1-light" class="padding">&nbsp;</div>
+                <div class="space-16"></div>
+                <div id="color1-main" class="primary padding">
+                    <div class="svgContainer">
+                        <!-- Default placeholder SVG will be set here -->
+                    </div>
+                </div>
+                <div class="space-16"></div>
+                <div id="color1-dark" class="padding">&nbsp;</div>
+            </div>
+            <div>
+                <div id="color2-light" class="padding">&nbsp;</div>
+                <div class="space-16"></div>
+                <div id="color2-main" class="secondary padding">
+                    <div class="svgContainer">
+                        <!-- Default placeholder SVG will be set here -->
+                    </div>
+                </div>
+                <div class="space-16"></div>
+                <div id="color2-dark" class="padding">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="space-32"></div>
+        <div class="main">
+            <div id="color-values">
+                <div id="color1-light-value" class="color-value"></div>
+                <div class="space-6"></div>
+                <div id="color1-main-value" class="color-value"></div>
+                <div class="space-6"></div>
+                <div id="color1-dark-value" class="color-value"></div>
+            </div>
+            <div id="color-values">
+                <div id="color2-light-value" class="color-value"></div>
+                <div class="space-6"></div>
+                <div id="color2-main-value" class="color-value"></div>
+                <div class="space-6"></div>
+                <div id="color2-dark-value" class="color-value"></div>
+            </div>
+        </div>
+        <div class="space-32"></div>
+        <button class="button background-primary color-secondary" id="generate-button">Generate</button>&nbsp;&nbsp;&nbsp;&nbsp;<input type="file" id="uploadSvg" accept=".svg">
+    </div>
+    <div class="space-128"></div>
+
+  
+
+  <script>
+        // Set default placeholder SVGs on page load for all containers
+        document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.svgContainer').forEach(container => {
+            const placeholderSvg = `
+            <svg width="300" viewBox="0 0 183 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.8229 0.507082C5.28688 2.9117 5.84776 8.06826 9.79835 9.35072C13.5051 10.553 16.6265 5.42318 14.3098 1.89641C13.1881 0.133031 10.3836 -0.561635 8.8229 0.507082ZM10.0666 2.08344C10.5299 2.43077 10.6275 3.12544 10.2617 3.71323C9.77397 4.48805 8.9936 4.43462 8.65219 3.60636C8.43272 3.04529 8.4571 2.85826 8.8229 2.40406C9.28624 1.84298 9.62765 1.76282 10.0666 2.08344Z" fill="black"/>
+            <path d="M28.4469 0.500097C26.4452 1.50894 25.432 4.07195 26.0992 6.33503C26.2722 6.88035 26.8406 7.7256 27.3596 8.27092C30.1521 11.0521 34.5263 8.92531 34.5263 4.80813C34.5263 3.3085 34.1309 2.35419 33.1177 1.29081C31.7832 -0.099756 30.1768 -0.372416 28.4469 0.500097ZM29.7073 3.09037C29.7073 4.07195 29.0401 4.61727 28.4222 4.18101C27.4337 3.49936 27.928 2.08153 29.0648 2.21786C29.5837 2.27239 29.7073 2.43599 29.7073 3.09037Z" fill="black"/>
+            <path d="M1.23217 8.68571C0.506072 9.62858 2.48015 11.3451 4.63575 11.611C5.88373 11.7561 6.47368 11.466 6.47368 10.6923C6.47368 10.1605 5.65682 9.74946 4.61306 9.74946C4.22732 9.74946 3.38777 9.41099 2.72975 9.02418C1.66329 8.37142 1.50446 8.34725 1.23217 8.68571Z" fill="black"/>
+            <path d="M18.8935 8.71328C17.7771 9.01933 17.7499 9.4529 18.8391 11.0342C19.5471 12.0798 19.6832 12.4369 19.5471 13.3295C19.3292 14.8853 18.0766 15.9565 16.5518 15.931C15.2175 15.9055 12.9029 14.9363 12.5217 14.2477C12.1677 13.6356 11.2691 13.6611 10.9151 14.3242C10.5339 14.9618 11.0241 15.7524 12.3311 16.6706C14.9179 18.4304 17.9949 18.4559 19.9555 16.6706L20.9358 15.7779L21.4259 16.441C22.8963 18.5834 27.3621 18.2263 29.5405 15.8289C30.3846 14.8598 30.4118 14.7578 29.7311 14.1967C29.2409 13.7631 29.1592 13.7886 27.9611 14.6557C26.2729 15.8544 24.7208 16.2625 23.8222 15.7014C23.0053 15.2168 22.4607 14.4007 22.2156 13.3295C22.0794 12.6664 22.1884 12.2584 22.8691 11.2637C23.9039 9.75895 23.9583 9.01933 23.0053 8.68777C22.1611 8.38172 20.0644 8.40723 18.8935 8.71328Z" fill="black"/>
+            <path d="M38.417 8.78034C37.9988 9.25623 36.5875 9.70707 34.8886 9.90744C33.8954 10.0076 33.5295 10.183 33.4773 10.5086C33.2159 11.7358 34.6795 11.9863 37.3977 11.1848C39.2795 10.6338 40.0374 10.0076 39.9067 9.131C39.8022 8.45474 38.8874 8.22931 38.417 8.78034Z" fill="black"/>
+            <path d="M1.14356 14.1187C0.172194 14.4784 -0.160117 14.883 0.069944 15.4225C0.300005 15.9395 0.913502 16.0294 1.78262 15.6473C2.42168 15.3551 3.00961 15.3101 4.67117 15.4225C6.40941 15.5349 6.84397 15.4899 7.17628 15.1977C7.71309 14.7257 7.68753 14.5234 7.0229 14.1187C6.25603 13.6467 2.44724 13.6467 1.14356 14.1187Z" fill="black"/>
+            <path d="M34.5611 13.6379C33.5297 13.7339 33.104 14.0388 33.1866 14.6194C33.275 15.1783 33.8443 15.424 34.7827 15.2798C35.4756 15.1629 36.0552 15.2717 37.631 15.8103C39.281 16.3687 39.7123 16.4378 40.109 16.2415C40.7497 15.9245 40.7773 15.7225 40.2401 15.1596C39.6215 14.5052 35.9425 13.5194 34.5611 13.6379Z" fill="black"/>
+            <path d="M65 2.04001V4.30001H59.18V7.88001H63.64V10.1H59.18V16H56.38V2.04001H65Z" fill="black"/>
+            <path d="M76.2455 4.92001V16H73.4255V14.6C73.0655 15.08 72.5921 15.46 72.0055 15.74C71.4321 16.0067 70.8055 16.14 70.1255 16.14C69.2588 16.14 68.4921 15.96 67.8255 15.6C67.1588 15.2267 66.6321 14.6867 66.2455 13.98C65.8721 13.26 65.6855 12.4067 65.6855 11.42V4.92001H68.4855V11.02C68.4855 11.9 68.7055 12.58 69.1455 13.06C69.5855 13.5267 70.1855 13.76 70.9455 13.76C71.7188 13.76 72.3255 13.5267 72.7655 13.06C73.2055 12.58 73.4255 11.9 73.4255 11.02V4.92001H76.2455Z" fill="black"/>
+            <path d="M80.6081 6.64001C80.9681 6.05335 81.4348 5.59335 82.0081 5.26001C82.5948 4.92668 83.2615 4.76001 84.0081 4.76001V7.70001H83.2681C82.3881 7.70001 81.7215 7.90668 81.2681 8.32001C80.8281 8.73335 80.6081 9.45335 80.6081 10.48V16H77.8081V4.92001H80.6081V6.64001Z" fill="black"/>
+            <path d="M87.4941 6.54001C87.8541 6.00668 88.3474 5.57335 88.9741 5.24001C89.6141 4.90668 90.3407 4.74001 91.1541 4.74001C92.1007 4.74001 92.9541 4.97335 93.7141 5.44001C94.4874 5.90668 95.0941 6.57335 95.5341 7.44001C95.9874 8.29335 96.2141 9.28668 96.2141 10.42C96.2141 11.5533 95.9874 12.56 95.5341 13.44C95.0941 14.3067 94.4874 14.98 93.7141 15.46C92.9541 15.94 92.1007 16.18 91.1541 16.18C90.3274 16.18 89.6007 16.02 88.9741 15.7C88.3607 15.3667 87.8674 14.94 87.4941 14.42V16H84.6941V1.20001H87.4941V6.54001ZM93.3541 10.42C93.3541 9.75335 93.2141 9.18001 92.9341 8.70001C92.6674 8.20668 92.3074 7.83335 91.8541 7.58001C91.4141 7.32668 90.9341 7.20001 90.4141 7.20001C89.9074 7.20001 89.4274 7.33334 88.9741 7.60001C88.5341 7.85334 88.1741 8.22668 87.8941 8.72001C87.6274 9.21334 87.4941 9.79335 87.4941 10.46C87.4941 11.1267 87.6274 11.7067 87.8941 12.2C88.1741 12.6933 88.5341 13.0733 88.9741 13.34C89.4274 13.5933 89.9074 13.72 90.4141 13.72C90.9341 13.72 91.4141 13.5867 91.8541 13.32C92.3074 13.0533 92.6674 12.6733 92.9341 12.18C93.2141 11.6867 93.3541 11.1 93.3541 10.42Z" fill="black"/>
+            <path d="M96.3288 10.42C96.3288 9.30001 96.5488 8.30668 96.9888 7.44001C97.4421 6.57335 98.0488 5.90668 98.8088 5.44001C99.5821 4.97335 100.442 4.74001 101.389 4.74001C102.215 4.74001 102.935 4.90668 103.549 5.24001C104.175 5.57335 104.675 5.99335 105.049 6.50001V4.92001H107.869V16H105.049V14.38C104.689 14.9 104.189 15.3333 103.549 15.68C102.922 16.0133 102.195 16.18 101.369 16.18C100.435 16.18 99.5821 15.94 98.8088 15.46C98.0488 14.98 97.4421 14.3067 96.9888 13.44C96.5488 12.56 96.3288 11.5533 96.3288 10.42ZM105.049 10.46C105.049 9.78001 104.915 9.20001 104.649 8.72001C104.382 8.22668 104.022 7.85334 103.569 7.60001C103.115 7.33334 102.629 7.20001 102.109 7.20001C101.589 7.20001 101.109 7.32668 100.669 7.58001C100.229 7.83335 99.8688 8.20668 99.5888 8.70001C99.3221 9.18001 99.1888 9.75335 99.1888 10.42C99.1888 11.0867 99.3221 11.6733 99.5888 12.18C99.8688 12.6733 100.229 13.0533 100.669 13.32C101.122 13.5867 101.602 13.72 102.109 13.72C102.629 13.72 103.115 13.5933 103.569 13.34C104.022 13.0733 104.382 12.7 104.649 12.22C104.915 11.7267 105.049 11.14 105.049 10.46Z" fill="black"/>
+            <path d="M112.203 1.20001V16H109.403V1.20001H112.203Z" fill="black"/>
+            <path d="M116.57 1.20001V16H113.77V1.20001H116.57Z" fill="black"/>
+            <path d="M126.056 8.84001C126.843 8.98668 127.49 9.38001 127.996 10.02C128.503 10.66 128.756 11.3933 128.756 12.22C128.756 12.9667 128.57 13.6267 128.196 14.2C127.836 14.76 127.31 15.2 126.616 15.52C125.923 15.84 125.103 16 124.156 16H118.136V2.04001H123.896C124.843 2.04001 125.656 2.19335 126.336 2.50001C127.03 2.80668 127.55 3.23335 127.896 3.78001C128.256 4.32668 128.436 4.94668 128.436 5.64001C128.436 6.45335 128.216 7.13335 127.776 7.68001C127.35 8.22668 126.776 8.61335 126.056 8.84001ZM120.936 7.80001H123.496C124.163 7.80001 124.676 7.65335 125.036 7.36001C125.396 7.05335 125.576 6.62001 125.576 6.06001C125.576 5.50001 125.396 5.06668 125.036 4.76001C124.676 4.45335 124.163 4.30001 123.496 4.30001H120.936V7.80001ZM123.756 13.72C124.436 13.72 124.963 13.56 125.336 13.24C125.723 12.92 125.916 12.4667 125.916 11.88C125.916 11.28 125.716 10.8133 125.316 10.48C124.916 10.1333 124.376 9.96001 123.696 9.96001H120.936V13.72H123.756Z" fill="black"/>
+            <path d="M140.248 4.92001V16H137.428V14.6C137.068 15.08 136.594 15.46 136.008 15.74C135.434 16.0067 134.808 16.14 134.128 16.14C133.261 16.14 132.494 15.96 131.828 15.6C131.161 15.2267 130.634 14.6867 130.248 13.98C129.874 13.26 129.688 12.4067 129.688 11.42V4.92001H132.488V11.02C132.488 11.9 132.708 12.58 133.148 13.06C133.588 13.5267 134.188 13.76 134.948 13.76C135.721 13.76 136.328 13.5267 136.768 13.06C137.208 12.58 137.428 11.9 137.428 11.02V4.92001H140.248Z" fill="black"/>
+            <path d="M141.09 10.42C141.09 9.30001 141.31 8.30668 141.75 7.44001C142.204 6.57335 142.817 5.90668 143.59 5.44001C144.364 4.97335 145.224 4.74001 146.17 4.74001C146.89 4.74001 147.577 4.90001 148.23 5.22001C148.884 5.52668 149.404 5.94001 149.79 6.46001V1.20001H152.63V16H149.79V14.36C149.444 14.9067 148.957 15.3467 148.33 15.68C147.704 16.0133 146.977 16.18 146.15 16.18C145.217 16.18 144.364 15.94 143.59 15.46C142.817 14.98 142.204 14.3067 141.75 13.44C141.31 12.56 141.09 11.5533 141.09 10.42ZM149.81 10.46C149.81 9.78001 149.677 9.20001 149.41 8.72001C149.144 8.22668 148.784 7.85334 148.33 7.60001C147.877 7.33334 147.39 7.20001 146.87 7.20001C146.35 7.20001 145.87 7.32668 145.43 7.58001C144.99 7.83335 144.63 8.20668 144.35 8.70001C144.084 9.18001 143.95 9.75335 143.95 10.42C143.95 11.0867 144.084 11.6733 144.35 12.18C144.63 12.6733 144.99 13.0533 145.43 13.32C145.884 13.5867 146.364 13.72 146.87 13.72C147.39 13.72 147.877 13.5933 148.33 13.34C148.784 13.0733 149.144 12.7 149.41 12.22C149.677 11.7267 149.81 11.14 149.81 10.46Z" fill="black"/>
+            <path d="M153.445 10.42C153.445 9.30001 153.665 8.30668 154.105 7.44001C154.558 6.57335 155.172 5.90668 155.945 5.44001C156.718 4.97335 157.578 4.74001 158.525 4.74001C159.245 4.74001 159.932 4.90001 160.585 5.22001C161.238 5.52668 161.758 5.94001 162.145 6.46001V1.20001H164.985V16H162.145V14.36C161.799 14.9067 161.312 15.3467 160.685 15.68C160.058 16.0133 159.332 16.18 158.505 16.18C157.572 16.18 156.718 15.94 155.945 15.46C155.172 14.98 154.558 14.3067 154.105 13.44C153.665 12.56 153.445 11.5533 153.445 10.42ZM162.165 10.46C162.165 9.78001 162.032 9.20001 161.765 8.72001C161.498 8.22668 161.138 7.85334 160.685 7.60001C160.232 7.33334 159.745 7.20001 159.225 7.20001C158.705 7.20001 158.225 7.32668 157.785 7.58001C157.345 7.83335 156.985 8.20668 156.705 8.70001C156.438 9.18001 156.305 9.75335 156.305 10.42C156.305 11.0867 156.438 11.6733 156.705 12.18C156.985 12.6733 157.345 13.0533 157.785 13.32C158.238 13.5867 158.718 13.72 159.225 13.72C159.745 13.72 160.232 13.5933 160.685 13.34C161.138 13.0733 161.498 12.7 161.765 12.22C162.032 11.7267 162.165 11.14 162.165 10.46Z" fill="black"/>
+            <path d="M177.12 4.92001L170.26 21.24H167.28L169.68 15.72L165.24 4.92001H168.38L171.24 12.66L174.14 4.92001H177.12Z" fill="black"/>
+            <g clip-path="url(#clip0_13_77)">
+            <path d="M180 0.5C181.381 0.5 182.5 1.61925 182.5 3C182.5 4.38075 181.381 5.5 180 5.5C178.619 5.5 177.5 4.38075 177.5 3C177.5 1.61925 178.619 0.5 180 0.5ZM180 1C179.47 1 178.961 1.21071 178.586 1.58579C178.211 1.96086 178 2.46957 178 3C178 3.53043 178.211 4.03914 178.586 4.41421C178.961 4.78929 179.47 5 180 5C180.53 5 181.039 4.78929 181.414 4.41421C181.789 4.03914 182 3.53043 182 3C182 2.46957 181.789 1.96086 181.414 1.58579C181.039 1.21071 180.53 1 180 1ZM180.125 1.75C180.316 1.74996 180.502 1.81236 180.654 1.92768C180.806 2.04301 180.916 2.20492 180.968 2.38874C181.019 2.57255 181.009 2.76819 180.939 2.9458C180.869 3.12342 180.743 3.27327 180.58 3.3725L181.217 4.25H180.599L180.054 3.5H179.5V4.25H179V1.75H180.125ZM180.125 2.25H179.5V3H180.125C180.218 3 180.308 2.96527 180.377 2.9026C180.446 2.83992 180.489 2.75379 180.498 2.661L180.5 2.625C180.5 2.52554 180.46 2.43016 180.39 2.35983C180.32 2.28951 180.224 2.25 180.125 2.25Z" fill="black"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_13_77">
+            <rect width="6" height="6" fill="white" transform="translate(177)"/>
+            </clipPath>
+            </defs>
+            </svg> 
+            `;
+            container.innerHTML = placeholderSvg;
+        });
+        });
+
+        // Handle file upload and display the uploaded SVG in all containers
+        document.getElementById('uploadSvg').addEventListener('change', function(event) {
+        const file = event.target.files[0]; // Get the uploaded file
+        const svgContainers = document.querySelectorAll('.svgContainer'); // All containers for displaying SVG
+
+        if (file && file.type === 'image/svg+xml') {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+            // Create a temporary DOM element to parse the SVG
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = e.target.result;
+
+            const svgElement = tempDiv.querySelector('svg');
+            if (svgElement) {
+                // Set default width (and optionally height)
+                svgElement.setAttribute('width', '300px'); // Default width
+                svgElement.setAttribute('height', 'auto'); // Optional: auto height for proportion
+
+                // Insert the modified SVG into all containers
+                svgContainers.forEach(container => {
+                container.innerHTML = ''; // Clear existing content
+                container.appendChild(svgElement.cloneNode(true)); // Append cloned SVG to each container
+                });
+            } else {
+                svgContainers.forEach(container => {
+                container.innerHTML = '<p>Invalid SVG content.</p>';
+                });
+            }
+            };
+
+            reader.readAsText(file); // Read the SVG file as text
+        } else {
+            svgContainers.forEach(container => {
+            container.innerHTML = '<p>Please upload a valid SVG file.</p>';
+            });
+        }
+        });
+
+        // Utility function to generate random hex color
+        function getRandomColor() {
+        return `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
+        }
+
+        // Function to adjust the brightness of a hex color
+        function adjustBrightness(hex, factor) {
+        const r = Math.min(255, Math.max(0, parseInt(hex.slice(1, 3), 16) + factor));
+        const g = Math.min(255, Math.max(0, parseInt(hex.slice(3, 5), 16) + factor));
+        const b = Math.min(255, Math.max(0, parseInt(hex.slice(5, 7), 16) + factor));
+        return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase()}`;
+        }
+
+        // Function to generate and set colors
+        function generateColors() {
+        const color1 = getRandomColor();
+        const color2 = getRandomColor();
+
+        document.getElementById('color1-main').style.backgroundColor = color1;
+        document.getElementById('color1-light').style.backgroundColor = adjustBrightness(color1, 50);
+        document.getElementById('color1-dark').style.backgroundColor = adjustBrightness(color1, -50);
+
+        document.getElementById('color2-main').style.backgroundColor = color2;
+        document.getElementById('color2-light').style.backgroundColor = adjustBrightness(color2, 50);
+        document.getElementById('color2-dark').style.backgroundColor = adjustBrightness(color2, -50);
+        }
+
+        // Event listener for the button
+        document.getElementById('generate-button').addEventListener('click', generateColors);
+
+        // Generate initial colors on page load
+        generateColors();
+
+        // Utility function to convert hex to RGB
+        function hexToRGB(hex) {
+        const r = parseInt(hex.slice(1, 3), 16);
+        const g = parseInt(hex.slice(3, 5), 16);
+        const b = parseInt(hex.slice(5, 7), 16);
+        return `rgb(${r}, ${g}, ${b})`;
+        }
+
+        // Function to generate and set colors with RGB codes
+        function generateColors() {
+        const color1 = getRandomColor();
+        const color2 = getRandomColor();
+
+        // Color boxes update
+        const boxes = [
+            { id: 'color1-main', color: color1 },
+            { id: 'color1-light', color: adjustBrightness(color1, 50) },
+            { id: 'color1-dark', color: adjustBrightness(color1, -50) },
+            { id: 'color2-main', color: color2 },
+            { id: 'color2-light', color: adjustBrightness(color2, 50) },
+            { id: 'color2-dark', color: adjustBrightness(color2, -50) },
+        ];
+
+        boxes.forEach(({ id, color }) => {
+            const box = document.getElementById(id);
+            box.style.backgroundColor = color;
+        });
+
+        // Update color values outside the boxes
+        document.getElementById('color1-main-value').textContent = `Primary ${hexToRGB(color1)}`;
+        document.getElementById('color1-light-value').textContent = `Primary Light ${hexToRGB(adjustBrightness(color1, 50))}`;
+        document.getElementById('color1-dark-value').textContent = `Primary Dark ${hexToRGB(adjustBrightness(color1, -50))}`;
+        
+        document.getElementById('color2-main-value').textContent = `Secondary ${hexToRGB(color2)}`;
+        document.getElementById('color2-light-value').textContent = `Secondary Light ${hexToRGB(adjustBrightness(color2, 50))}`;
+        document.getElementById('color2-dark-value').textContent = `Secondary Dark ${hexToRGB(adjustBrightness(color2, -50))}`;
+        }
+
+        // Event listener for the button
+        document.getElementById('generate-button').addEventListener('click', generateColors);
+
+        // Generate initial colors on page load
+        generateColors();
+
+
+
+  </script>
+</body>
+</html>
