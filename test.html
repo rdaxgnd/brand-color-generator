@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Button Test</title>
+</head>
+<body>
+    <!-- Button with an id -->
+    <button id="generate-button">Generate</button>
+
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get the button
+            const generateButton = document.getElementById('generate-button');
+            
+            // Add click handler to button (for testing)
+            generateButton.addEventListener('click', () => {
+                console.log('Button clicked!');
+            });
+
+            // Add keyboard listener
+            document.addEventListener('keydown', (event) => {
+                if (event.key.toLowerCase() === 'g') {
+                    generateButton.click();
+                    // Prevent default 'g' key behavior
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
